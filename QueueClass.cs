@@ -11,14 +11,12 @@ namespace Program
         private T[] arr;
         private int count;
         private int size;
-        private int front;
-
+        
         public QueueClass(int size)
         {
             this.arr = new T[size];
             this.size = size;
             this.count = 0;
-            this.front = 0;
         }
         public bool ifEmpty()
         {
@@ -44,9 +42,11 @@ namespace Program
             {
                 throw new Exception("Queue is empty.");
             }
-            T dequeued = arr[front];
-            arr[front] = default;
-            front = (front + 1) % size;
+            T dequeued = arr[0];
+            for (int i = 1; i < count; i++)
+            {
+                arr[i-1] = arr[i]; //move the elements to the left.
+            }
             count--;
             return dequeued;
         }
@@ -56,7 +56,7 @@ namespace Program
             {
                 throw new Exception("Queue is empty.");
             }
-            return arr[front];
+            return arr[0];
         }
         public void Display()
         {
@@ -68,8 +68,7 @@ namespace Program
 
             for (int i = 0; i < count; i++)
             {
-                int index = (front + i) % size;
-                Console.Write(arr[index] + " ");
+                Console.Write({arr[i]} + " ");
             }
             Console.WriteLine();
         }
