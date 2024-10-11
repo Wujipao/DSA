@@ -45,6 +45,7 @@ namespace Program
                 throw new Exception("Stack is empty.");
             }
             count--;
+            arr[count] = default;
             return arr[count];
         }
         public T Peek()
