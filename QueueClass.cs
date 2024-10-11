@@ -50,6 +50,14 @@ namespace Program
             count--;
             return dequeued;
         }
+        public T Peek()
+        {
+            if (ifEmpty()) 
+            {
+                throw new Exception("Queue is empty.");
+            }
+            return arr[front];
+        }
         public void Display()
         {
             if (ifEmpty())
