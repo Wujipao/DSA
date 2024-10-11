@@ -10,21 +10,14 @@ namespace Program
     {
         public static void Main(string[] args)
         {
-            StackClass<string> stck = new StackClass<string>(5);
+            StackClass<int> stck = new StackClass<int>(5);
 
-            stck.Push("hello");
-            stck.Push("world");
-            stck.Push("i");
-            stck.Push("love");
-            stck.Push("you");
-
-            string[] arr = new string[5];
-
-            for(int i = 0; i < arr.Length; i++) 
-            {
-                arr[i] = stck.Pop();
-                Console.WriteLine(arr[i]);
-            }
+            stck.Push(10);
+            stck.Push(20);
+            stck.Push(30);
+            Console.WriteLine($"Popped: {stck.Pop()}")
+            Console.WriteLine($"Peeked: {stck.Peek()}")
+            stck.Display();
         }
     }
 }
